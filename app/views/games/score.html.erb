@@ -1,0 +1,41 @@
+<div class="container mt-5 text-center">
+  <h1 class="mb-4">Result</h1>
+
+  <h3>Your grid was:</h3>
+  <div class="d-flex justify-content-center mb-4">
+    <% @grid.gsub(/\s+/, "").each_char do |letter| %>
+      <span class="badge bg-primary fs-4 p-2 m-1"><%= letter %></span>
+    <% end %>
+  </div>
+
+  <h3>Your word was:</h3>
+  <div class="mb-4">
+    <span class="badge bg-success fs-3 p-3"><%= @word.upcase %></span>
+  </div>
+
+  <p class="fs-5">
+    <strong>Is your word English?</strong>
+    <% if @is_english %>
+      <span class="text-success">Yes</span>
+    <% else %>
+      <span class="text-danger">No</span>
+    <% end %>
+  </p>
+
+  <p class="fs-5">
+    <strong>Is your word in the grid?</strong>
+    <% if @is_in_grid %>
+      <span class="text-success">Yes</span>
+    <% else %>
+      <span class="text-danger">No</span>
+    <% end %>
+  </p>
+
+  <div class="alert alert-info mt-4" role="alert">
+    <%= @message %>
+  </div>
+
+  <div class="mt-5">
+    <a href="/new" class="btn btn-primary btn-lg">Play Again</a>
+  </div>
+</div>
